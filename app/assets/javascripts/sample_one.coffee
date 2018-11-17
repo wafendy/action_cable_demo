@@ -4,4 +4,23 @@
 App.room = App.cable.subscriptions.create "SampleOneChannel",
   received: (data) ->
     console.log(data)
-    $('#messages').append data['message']
+
+
+$ ->
+  $('#sample_one_button_1').click ->
+    $.ajax
+      url: '/ajax/index'
+      method: 'GET'
+      data: {
+        button_id: 'sample_one_button_1',
+        job_action: 'sample_one'
+      }
+
+  $('#sample_one_button_2').click ->
+    $.ajax
+      url: '/ajax/index'
+      method: 'GET'
+      data: {
+        button_id: 'sample_one_button_2',
+        job_action: 'sample_one'
+      }

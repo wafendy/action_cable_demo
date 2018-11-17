@@ -6,11 +6,11 @@ class SampleOneJob
     #   ActionCable.server.broadcast 'button_channel', button_id: button_id, state: 'pending'
     # end
 
-    ActionCable.server.broadcast 'sample_one_channel', message: 'Dummy Job - Started'
+    ActionCable.server.broadcast 'sample_one_channel', message: 'Dummy Job - Started', origin: button_id
     
     sleep(rand(1..4))
 
-    ActionCable.server.broadcast 'sample_one_channel', message: 'Dummy Job - Finished'
+    ActionCable.server.broadcast 'sample_one_channel', message: 'Dummy Job - Finished', origin: button_id
 
     # if button_id == 'sample_one_button_2'
     #   ActionCable.server.broadcast 'button_channel', button_id: button_id, state: 'ready'

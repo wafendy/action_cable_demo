@@ -8,7 +8,7 @@ class SampleOneJob
 
     ActionCable.server.broadcast 'sample_one_channel', message: 'Dummy Job - Started'
     
-    sleep(rand(3..5))
+    sleep(rand(1..4))
 
     ActionCable.server.broadcast 'sample_one_channel', message: 'Dummy Job - Finished'
 

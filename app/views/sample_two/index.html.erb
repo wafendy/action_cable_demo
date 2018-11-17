@@ -1,0 +1,79 @@
+<section class="hero is-dark is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <p class="title">
+        Sample Two
+      </p>
+      <p class="subtitle">
+        Visualize SuckerPunch queue.
+      </p>
+    </div>
+  </div>
+</section>
+<br>
+<section class="hero">
+  <div class="hero-head">
+    <div class="container">
+      <div class="columns">
+        <div id="toilet_column" class="column">
+          <figure class="image is-4by3">
+            <%= image_tag('placeholder.png', class: 'image_canvas', id: 'canvas_toilet') %>
+          </figure>
+        </div>
+        <div id="dancing_column" class="column">
+          <figure class="image is-4by3">
+            <%= image_tag('placeholder.png', class: 'image_canvas', id: 'canvas_dance') %>
+          </figure>
+        </div>
+        <div id="smacking_column" class="column">
+          <figure class="image is-4by3">
+            <%= image_tag('placeholder.png', class: 'image_canvas', id: 'canvas_smack') %>
+          </figure>
+        </div>
+        <div id="snowing_column" class="column">
+          <figure class="image is-4by3">
+            <%= image_tag('placeholder.png', class: 'image_canvas', id: 'canvas_sprinkle') %>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-body">
+    <div class="container">
+      <p class="title">
+        Click one of the buttons below to start.
+      </p>
+      <div id='images' data-toilet="<%= asset_path('toilet.gif') %>"
+                       data-dance="<%= asset_path('dance.gif') %>"
+                       data-smack="<%= asset_path('smack.gif') %>"
+                       data-sprinkle="<%= asset_path('sprinkle.gif') %>"
+                       data-placeholder="<%= asset_path('placeholder.png') %>">      
+        <button class="button is-warning sample-two-button-action" data-id="toilet" data-color='is-warning'>Toilet</button>
+        <button class="button is-danger sample-two-button-action" data-id="dance" data-color='is-danger'>Dance</button>
+        <button class="button is-link sample-two-button-action" data-id="smack" data-color='is-link'>Smack</button>
+        <button class="button is-success sample-two-button-action" data-id="sprinkle" data-color='is-success'>Sprinkle</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <p class="title">
+    Queue
+  </p>
+  <div id="queue"></div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    setInterval(function(){ 
+      $.ajax({
+        url: '/ajax/index',
+        method: 'GET',
+        data: {
+          job_action: 'start_queue_processor'
+        }
+      });
+    }, 500);
+  });  
+</script>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sample_two/index'
   get 'sample_one/index'
   root to: 'home#index'
 

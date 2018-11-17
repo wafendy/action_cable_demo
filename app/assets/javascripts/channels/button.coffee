@@ -9,6 +9,6 @@ App.button = App.cable.subscriptions.create "ButtonChannel",
     # Called when there's incoming data on the websocket for this channel
     switch data.state
       when 'ready'
-        $("##{data.button_id}").removeClass('is-loading')
+        $("button[data-id='#{data.button_id}']").removeClass('is-loading')
       when 'pending'
-        $("##{data.button_id}").addClass('is-loading')
+        $("button[data-id='#{data.button_id}']").addClass('is-loading')

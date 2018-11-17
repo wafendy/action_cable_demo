@@ -11,6 +11,9 @@ class AjaxController < ApplicationController
       RemoveFromQueueJob.perform_in(rand(5..7), { canvas_id: params[:canvas_id] })
     when 'print_stats'
       puts SuckerPunch::Queue.stats
+    when 'chat_log'
+      sender = params[:sender].blank? ? 'anonymous' : params[:sender] 
+      ActionCable.server.broadcast 'chat_log_channel', message: params[:message], sender: sender
     end
     render plain: 'done'
   end

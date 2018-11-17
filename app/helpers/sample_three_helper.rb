@@ -1,0 +1,2 @@
+module SampleThreeHelper
+end

@@ -2,10 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-App.room = App.cable.subscriptions.create "SampleTwoChannel",
-  received: (data) ->
-    console.log(data)
-
 $ ->
   $('.sample-two-button-action').on "click", (event) ->
     $.ajax

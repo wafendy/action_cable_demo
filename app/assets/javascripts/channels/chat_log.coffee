@@ -32,7 +32,7 @@ App.chat_log = App.cable.subscriptions.create "ChatLogChannel",
           <div class="level-left">
             <div class="level-item">
               <div class="notification is-warning">
-                <p class="subtitle">#{sender_name}</p>
+                <p class="subtitle">#{data.sender}</p>
                 #{data.message}
               </div>      
             </div>

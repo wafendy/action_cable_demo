@@ -12,8 +12,8 @@ class AjaxController < ApplicationController
     when 'print_stats'
       puts SuckerPunch::Queue.stats
     when 'chat_log'
-      sender = params[:sender].blank? ? 'anonymous' : params[:sender] 
-      ActionCable.server.broadcast 'chat_log_channel', message: params[:message], sender: sender
+      sender = params[:sender].blank? ? "anonymous-#{params[:message_id]}" : params[:sender] 
+      ActionCable.server.broadcast 'chat_log_channel', message: params[:message], sender: sender, message_id: params[:message_id]
     end
     render plain: 'done'
   end

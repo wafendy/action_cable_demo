@@ -10,18 +10,15 @@
     </div>
   </div>
 </section>
-
-<section class="section">
-  <div class="container">  
-    <div class="field">
-      <div class="control">
-        <input id="message_sender" name="message" class="input is-warning is-large" type="text" placeholder="Enter your name here">
-      </div>
-    </div>
-    <div class="field">
-      <div class="control">
-        <input id="message_input" name="message" class="input is-success is-large" type="text" placeholder="Type and press Enter">
-      </div>
-    </div>
+<div class="columns">
+  <div class="column">
+    <input id="message_sender" name="message" class="input is-warning is-large" type="text" placeholder="Enter your name here">
   </div>
-</section>
+  <div class="column is-four-fifths">
+    <p class="bd-notification is-primary">
+      <input id="message_input" name="message" class="input is-success is-large" type="text" placeholder="Type and press Enter">
+    </p>
+  </div>
+</div>
+<div id="chatbox" data-user-id="">
+</div>

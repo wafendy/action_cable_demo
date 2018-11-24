@@ -1,8 +1,10 @@
 App.process_queue = App.cable.subscriptions.create "ProcessQueueChannel",
   connected: ->
+    console.log('ProcessQueueChannel - connected')
     # Called when the subscription is ready for use on the server
 
   disconnected: ->
+    console.log('ProcessQueueChannel - disconnected')
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
@@ -25,10 +27,7 @@ App.process_queue = App.cable.subscriptions.create "ProcessQueueChannel",
           when 'smack'
             $(canvas).attr('src', images.smack)
 
-        $.ajax
-          url: '/ajax/index'
-          method: 'GET'
-          data: {
-            canvas_id: canvas.id,
-            job_action: 'remove_from_queue'
-          }
+        setTimeout ->
+          images = $("#images")[0].dataset
+          $("##{canvas.id}").attr('src', images.placeholder)
+        , 4000

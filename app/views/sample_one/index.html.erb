@@ -16,3 +16,14 @@
     <button class="button is-link is-large sample-one-button-action" data-id="sample_one_button_2">Click Once</button>
   </div>
 </section>
+
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    $('.sample-one-button-action').on("click", function(event){
+      App.sample_one.send({
+        button_id: event.currentTarget.dataset.id,
+        job_action: 'sample_one'
+      })
+    });
+  }); 
+<% end %>

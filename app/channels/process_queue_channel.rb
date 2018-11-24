@@ -1,5 +1,6 @@
 class ProcessQueueChannel < ApplicationCable::Channel
   def subscribed
+    puts "=== ProcessQueueChannel subscribed"
     stream_from "process_queue_channel"
   end
 

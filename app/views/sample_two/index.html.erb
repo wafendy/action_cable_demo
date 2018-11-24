@@ -64,16 +64,24 @@
   <div id="queue"></div>
 </div>
 
-<script>
+<%= javascript_tag do %>
   $(document).ready(function() {
-    setInterval(function(){ 
-      $.ajax({
-        url: '/ajax/index',
-        method: 'GET',
-        data: {
-          job_action: 'start_queue_processor'
-        }
+    $('.sample-two-button-action').on("click", function(event){
+      App.sample_two.send({
+        button_id: event.currentTarget.dataset.id,
+        button_color: event.currentTarget.dataset.color,
+        action: 'add_to_queue'
+      })
+    });
+  }); 
+<% end %>
+
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    setInterval(function(){
+      App.sample_two.send({
+        action: 'process_queue'
       });
     }, 500);
   });  
-</script>
+<% end %>

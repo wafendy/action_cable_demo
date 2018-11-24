@@ -30,4 +30,4 @@ App.process_queue = App.cable.subscriptions.create "ProcessQueueChannel",
         setTimeout ->
           images = $("#images")[0].dataset
           $("##{canvas.id}").attr('src', images.placeholder)
-        , 4000
+        , 6000
